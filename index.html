@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GifTastic</title>
+
+  <!-- Bootstrap File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+</head>
+<body>
+
+  <!-- Overall Bootstrap Grid -->
+  <div class="container">
+
+
+
+    <div class="row">
+      <div class="col-md-12 text-center" id="buttons">
+        <!-- append dynamically created buttons to this div -->
+      </div> 
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-9 text-center" id="gifs">
+        <!-- append dynamically created gifs to this div -->
+        dynamically created gifs go here
+      </div> 
+
+      <div class="col-md-3 text-center" id="add-animal">
+
+        <h4>Add an Animal</h4>
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="animal-input">
+        </div>
+
+        <button type="button" class="btn btn-success" id="submit">Submit</button>
+
+      </div> 
+    </div>
+
+    
+  </div>
+
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
