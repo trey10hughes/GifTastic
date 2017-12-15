@@ -37,7 +37,7 @@ $("#buttons").on("click", "button", function() {
 	console.log($(this).attr("data-animal"));
 
 	//generates the url for the query using variables from earlier to fill in parameters
-	var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + searchAnimal + "&limit=5"
+	var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + searchAnimal + "&limit=10"
 
 
 	//ajax call
@@ -61,17 +61,34 @@ $("#buttons").on("click", "button", function() {
 			var animalImage = $("<img>");
 
 
-			animalImage.attr("src", results[i].images.fixed_height.url);
-			//need to make the images appear still at first
-			//animate them after they are clicked
-			//need to give a data-still and data-animate attr to each gif (probably can find the URL by looking through the JSON)
-			animalDiv.append(p);
+			animalImage.attr("src", results[i].images.fixed_height_still.url);
+			animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+			animalImage.attr("data-animate", results[i].images.fixed_height.url);
+			animalImage.attr("data-state", "still");
+			animalImage.attr("class", "gif");
+
 			animalDiv.append(animalImage);
+			animalDiv.append(p);
 			$("#gifs").prepend(animalDiv);
 		}
        
       	});
 	});//end of on click for dynamic buttons
+
+$("#gifs").on("click", ".gif", function() {
+
+        var state = $(this).attr("data-state");
+
+        if (state === "still") {
+          var dataAnimate = $(this).attr("data-animate");
+          $(this).attr("src", dataAnimate);
+          $(this).attr("data-state", "animate");
+        } else {
+          var dataStill = $(this).attr("data-still");
+          $(this).attr("src", dataStill);
+          $(this).attr("data-state", "still");
+        }
+    }); //end of on click for gifs
 
 });//end of code	
 
